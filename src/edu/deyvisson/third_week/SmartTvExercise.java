@@ -2,7 +2,7 @@ package edu.deyvisson.third_week;
 
 import java.util.Scanner;
 
-public class SmartTv {
+public class SmartTvExercise {
 
 
     public void ligarTv(){
@@ -65,7 +65,11 @@ public class SmartTv {
     }
 
 
-    public void controleSmartTv(int escolha){
+    public void controleSmartTv(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Controle Smartv:\n 1-Ligar/desligar\n 2-Aumentar/Diminuir volume\n 3-Selecionar canal\n 0-sair\n Digite uma opção:");
+        int escolha;
+        escolha = sc.nextInt();
 
         if (escolha==1){
             ligarTv();
@@ -82,14 +86,10 @@ public class SmartTv {
 
 
     public static void main(String[] args) {
-        SmartTv tv = new SmartTv();
-        int escolha;
+        SmartTvExercise tv = new SmartTvExercise();
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Controle Smartv:\n 1-Ligar/desligar\n 2-Aumentar/Diminuir volume\n 3-Selecionar canal\n 0-sair\n Digite uma opção:");
-//        escolha = sc.nextInt();
-
-        tv.controleSmartTv(escolha=2);
+        tv.controleSmartTv();
 
     }
 }
