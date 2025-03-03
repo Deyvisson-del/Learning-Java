@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class SmartTvExercise {
 
-
+    //My coding SmartTv
     public void ligarTv(){
         Scanner sc = new Scanner(System.in);
         int status;
@@ -12,58 +12,84 @@ public class SmartTvExercise {
         status = sc.nextInt();
         String mensagem = (status==1) ?"SmartTv ligada":"SmartTv desligada";
         System.out.println(mensagem);
+        sc.close();
+        controleSmartTv();
     }
 
     public void volume(){
         Scanner sc = new Scanner(System.in);
-//        int volume = 0;
-//        volume = sc.nextInt();
-
-//        for (int i =1; i<=100; i++) {
-//            System.out.println("O volume da SmartTV: " +i);
-//            System.out.println("1-Aumentar volume\n2-diminuir volume\n3-sair");
-//            System.out.println("O volume atual da SmartTV: " +i+"\n");
-//        }
         boolean status = true;
-        int volume;
+        int volume,atualVolume,contidion;
+
         volume = 0;
 
-        while (status==true){
-            System.out.println("O volume: "+volume);
-            int contidion;
-            System.out.println("Digite 1 para aumentar\nDigite 2 para diminuir\nDigite 3 para sair\nEscolha:");
+        while (true){
+
+            System.out.println("O volume: "+volume+"\nDigite 1 para aumentar\nDigite 2 para diminuir\nDigite 3 para sair\nEscolha:");
             contidion = sc.nextInt();
 
             if (contidion==1){
-                volume++;
-                System.out.println("Volume: "+volume);
+                atualVolume = volume++;
+                System.out.println("Volume: "+atualVolume);
                 status=true;
                 continue;
+
             } else if (contidion==2) {
                 volume--;
                 System.out.println("Volume: "+volume);
                 status=true;
                 continue;
+
             } else if (contidion==3) {
                 status=false;
+                controleSmartTv();
                 break;
-            }
 
-            sc.close();
+            }else{
+                System.err.println("Opção inválida");
+                continue;
+            }
         }
+        sc.close();
 
     }
 
     public void selecionarCanal(){
         Scanner sc = new Scanner(System.in);
-        int canal = 0;
-        System.out.println("O canal da SmartTV: " +canal);
-        System.out.println("Digite o canal que você deseja:");
-        canal = sc.nextInt();
-        sc.close();
-        System.out.println("O volume atual da SmartTV: " +canal);
-    }
+        int contidion,canal;
+        boolean status = true;
+        canal =0;
 
+        while (true){
+            System.out.println("O canal: "+canal+
+                    "\nDigite 1 para +1 canal" +
+                    "\nDigite 2 para -1 canal" +
+                    "\nDigite 3 para selecionar o canal desejado"+
+                    "\nDigite 4 para sair" +
+                    "\nEscolha:");
+            contidion = sc.nextInt();
+
+            if (contidion==1){
+                canal++;
+
+            } else if (contidion==2) {
+                canal--;
+
+            } else if (contidion==3) {
+                System.out.println("Digite o canal desejado: ");
+                canal = sc.nextInt();
+
+            } else if (contidion==4) {
+                controleSmartTv();
+                break;
+
+            }else{
+                System.err.println("Opção inválida");
+                continue;
+            }
+        }
+        sc.close();
+    }
 
     public void controleSmartTv(){
         Scanner sc = new Scanner(System.in);
@@ -80,16 +106,14 @@ public class SmartTvExercise {
         } else if (escolha==0) {
             System.out.println("Finalizando programa...");
         } else {
-            System.err.println("Nenhuma escolha selecionada/ escolha inválida");
+            System.err.println("Nenhuma escolha selecionada\nou\nescolha inválida");
+            controleSmartTv();
         }
     };
 
 
     public static void main(String[] args) {
         SmartTvExercise tv = new SmartTvExercise();
-        Scanner sc = new Scanner(System.in);
-
         tv.controleSmartTv();
-
     }
 }
