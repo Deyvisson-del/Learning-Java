@@ -1,7 +1,5 @@
 package edu.deyvisson.third_week;
 
-import java.util.Scanner;
-
 public class SmartTvResponse {
     private boolean ligada;
     private int volume;

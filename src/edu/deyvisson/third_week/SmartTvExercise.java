@@ -1,7 +1,12 @@
 package edu.deyvisson.third_week;
 
 import java.util.Scanner;
+/*
+<h1>SmartTvExercise</h1>
+@author Deyvisson Rafael
+@version 2.1
 
+ */
 public class SmartTvExercise {
 
     //My coding SmartTv
